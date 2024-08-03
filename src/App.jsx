@@ -16,14 +16,18 @@ export const App = () => {
     setDogUrl(url.message)
   }, [])
   return (
-    <div>
-      <header>
-        <h2>Dog Phot App</h2>
+    <div className="main_wrapper">
+      <header className="header">
+        <h1>Dog Photo App</h1>
       </header>
-      <p>犬の画像を表示するサイトです。</p>
-      <img src={dogUrl} />
+      <p className="description">犬の画像を表示するサイトです。</p>
+      <div className="image">
+        <img src={dogUrl} />
+      </div>
       <br />
-      <button onClick={handleUpdateUrl}>更新</button>
+      <button onClick={handleUpdateUrl} className="button">
+        更新
+      </button>
     </div>
   )
 }

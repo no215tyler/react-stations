@@ -1,0 +1,52 @@
+.main_wrapper {
+  display: grid;
+  grid-template:
+    'header      header      header      header      header     ' 100px
+    '........... description description description ...........'
+    'area2       area3       area4       area5       area6      '
+    '........... image       image       image       ...........'
+    / 1fr 1fr 100px 1fr 1fr;
+  gap: 10px;
+  flex: 1;
+}
+
+.header,
+h1 {
+  background-color: #f5f5f5;
+  text-align: center;
+  grid-area: header;
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.description {
+  grid-area: description;
+  display: grid;
+  place-content: center;
+}
+
+.image {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+  max-height: 500px;
+  max-height: 500px;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.button {
+  grid-area: area4;
+  width: 100px;
+  background-color: #017bff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  color: #ffffff;
+}
+.button:hover {
+  cursor: pointer;
+  background-color: #019bff;
+}
