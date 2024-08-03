@@ -1,6 +1,6 @@
 // DO NOT DELETE
 
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import './App.css'
 
 /**
@@ -10,11 +10,20 @@ export const App = () => {
   const [dogUrl, setDogUrl] = useState(
     'https://images.dog.ceo/breeds/rottweiler/n02106550_3528.jpg',
   )
+  const handleUpdateUrl = useCallback(async () => {
+    const res = await fetch('https://dog.ceo/api/breeds/image/random')
+    const url = await res.json()
+    setDogUrl(url.message)
+  }, [])
   return (
-    <header>
-      <h2>Sample App</h2>
+    <div>
+      <header>
+        <h2>Dog Phot App</h2>
+      </header>
       <p>犬の画像を表示するサイトです。</p>
       <img src={dogUrl} />
-    </header>
+      <br />
+      <button onClick={handleUpdateUrl}>更新</button>
+    </div>
   )
 }
