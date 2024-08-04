@@ -4,11 +4,12 @@
     'header      header      header      header      header     ' 100px
     '........... description description description ...........'
     'area2       area3       area4       area5       area6      '
-    '........... label       list        list        ...........'
     '........... image       image       image       ...........'
     / 1fr 1fr 100px 1fr 1fr;
   gap: 10px;
   flex: 1;
+  border-bottom: solid #989898;
+  padding-bottom: 10px;
 }
 
 .header,
@@ -52,8 +53,19 @@ img {
   background-color: #019bff;
 }
 
+.doglist_container {
+  margin-top: 10px;
+  display: grid;
+  grid-template:
+    'description dropdown_list button'
+    'image       image         image ';
+  gap: 8px;
+  place-content: center;
+  align-items: center;
+}
+
 #dropdown_list {
-  grid-area: list;
+  grid-area: dropdown_list;
   text-align: center;
   height: 24px;
   width: 200px;
@@ -64,4 +76,18 @@ img {
   grid-area: label;
   display: grid;
   place-content: right;
+  grid-area: description;
+}
+
+#button2 {
+  grid-area: button;
+}
+
+.grid_image_container {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }

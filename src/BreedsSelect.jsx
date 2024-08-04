@@ -6,9 +6,7 @@ export const BreedsSelect = props => {
   }
   return (
     <>
-      <label for="dropdown_list" className="dropdown_label">
-        Select Breed ▶︎
-      </label>
+      <label className="dropdown_label">Select Breed ▶︎</label>
       <select
         id="dropdown_list"
         onChange={handleChange}

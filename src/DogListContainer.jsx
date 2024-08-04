@@ -11,8 +11,19 @@ export const DogListContainer = () => {
     return dogTypesArray
   }
 
+  const fetchDogListApi = async hound => {
+    console.log(hound)
+    const res = await fetch(
+      `https://dog.ceo/api/breed/${hound}/images/random/3`,
+    )
+    const dogType = await res.json()
+    const dogTypesArray = await dogType.message
+    setDogType(dogTypesArray)
+  }
+
   const [breeds, setBreeds] = useState([])
-  const [selectedBreed, setSelectedBreed] = useState('')
+  const [selectedBreed, setSelectedBreed] = useState('akita')
+  const [dogType, setDogType] = useState([])
 
   useEffect(() => {
     console.log('マウント')
@@ -31,6 +42,10 @@ export const DogListContainer = () => {
     setSelectedBreed(breed)
   }
 
+  const handleClick = () => {
+    fetchDogListApi(selectedBreed)
+  }
+
   return (
     <>
       <BreedsSelect
@@ -38,6 +53,14 @@ export const DogListContainer = () => {
         onBreedChange={handleBreedChange}
         selectedBreed={selectedBreed}
       />
+      <button id="button2" className="button" onClick={handleClick}>
+        表示
+      </button>
+      <div className="grid_image_container">
+        {dogType.map((dog, index) => {
+          return <img src={dog} key={index} className="grid_image" />
+        })}
+      </div>
     </>
   )
 }

@@ -10,10 +10,14 @@ import DogListContainer from './DogListContainer'
  */
 export const App = () => {
   return (
-    <div className="main_wrapper">
-      <Header />
-      <Description />
-      <DogListContainer />
-    </div>
+    <>
+      <div className="main_wrapper">
+        <Header />
+        <Description />
+      </div>
+      <div className="doglist_container">
+        <DogListContainer />
+      </div>
+    </>
   )
 }
