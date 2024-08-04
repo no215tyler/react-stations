@@ -4,6 +4,7 @@
     'header      header      header      header      header     ' 100px
     '........... description description description ...........'
     'area2       area3       area4       area5       area6      '
+    '........... label       list        list        ...........'
     '........... image       image       image       ...........'
     / 1fr 1fr 100px 1fr 1fr;
   gap: 10px;
@@ -49,4 +50,18 @@ img {
 .button:hover {
   cursor: pointer;
   background-color: #019bff;
+}
+
+#dropdown_list {
+  grid-area: list;
+  text-align: center;
+  height: 24px;
+  width: 200px;
+}
+
+.dropdown_label {
+  font-weight: bold;
+  grid-area: label;
+  display: grid;
+  place-content: right;
 }

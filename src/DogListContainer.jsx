@@ -1,6 +1,7 @@
 // @ts-check
 
 import { useEffect, useState } from 'react'
+import BreedsSelect from './BreedsSelect'
 
 export const DogListContainer = () => {
   const fetchDogTypes = async () => {
@@ -11,6 +12,7 @@ export const DogListContainer = () => {
   }
 
   const [breeds, setBreeds] = useState([])
+  const [selectedBreed, setSelectedBreed] = useState('')
 
   useEffect(() => {
     console.log('マウント')
@@ -24,7 +26,20 @@ export const DogListContainer = () => {
       console.log('アンマウント')
     }
   }, [])
-  return <></>
+
+  const handleBreedChange = breed => {
+    setSelectedBreed(breed)
+  }
+
+  return (
+    <>
+      <BreedsSelect
+        breeds={breeds}
+        onBreedChange={handleBreedChange}
+        selectedBreed={selectedBreed}
+      />
+    </>
+  )
 }
 
 export default DogListContainer
